@@ -1,0 +1,1214 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+
+<style>
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+  }
+
+  .toolbar img {
+    margin: 0 16px;
+  }
+
+  .toolbar #twitter-logo {
+    height: 40px;
+    margin: 0 8px;
+  }
+
+  .toolbar #youtube-logo {
+    height: 40px;
+    margin: 0 16px;
+  }
+
+  .toolbar #twitter-logo:hover,
+  .toolbar #youtube-logo:hover {
+    opacity: 0.8;
+  }
+
+  .content {
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  svg.material-icons {
+    height: 24px;
+    width: auto;
+  }
+
+  svg.material-icons:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  .card svg.material-icons path {
+    fill: #888;
+  }
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .card {
+    all: unset;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    background-color: #fafafa;
+    height: 40px;
+    width: 200px;
+    margin: 0 8px 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    line-height: 24px;
+  }
+
+  .card-container .card:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .card.card-small {
+    height: 16px;
+    width: 168px;
+  }
+
+  .card-container .card:not(.highlight-card) {
+    cursor: pointer;
+  }
+
+  .card-container .card:not(.highlight-card):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+  }
+
+  .card-container .card:not(.highlight-card):hover .material-icons path {
+    fill: rgb(105, 103, 103);
+  }
+
+  .card.highlight-card {
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+    border: none;
+    width: auto;
+    min-width: 30%;
+    position: relative;
+  }
+
+  .card.card.highlight-card span {
+    margin-left: 60px;
+  }
+
+  svg#rocket {
+    width: 80px;
+    position: absolute;
+    left: -10px;
+    top: -24px;
+  }
+
+  svg#rocket-smoke {
+    height: calc(100vh - 95px);
+    position: absolute;
+    top: 10px;
+    right: 180px;
+    z-index: -10;
+  }
+
+  a,
+  a:visited,
+  a:hover {
+    color: #1976d2;
+    text-decoration: none;
+     
+  }
+
+  a:hover {
+    color: #125699;
+  }
+
+  .terminal {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 6px;
+    padding-top: 45px;
+    margin-top: 8px;
+    overflow: hidden;
+    background-color: rgb(15, 15, 16);
+  }
+
+  .terminal::before {
+    content: "\2022 \2022 \2022";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: rgb(58, 58, 58);
+    color: #c2c3c4;
+    width: 100%;
+    font-size: 2rem;
+    line-height: 0;
+    padding: 14px 0;
+    text-indent: 4px;
+  }
+
+  .terminal pre {
+    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+    color: white;
+    padding: 0 1rem 1rem;
+    margin: 0;
+  }
+
+  .circle-link {
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    margin: 8px;
+    background-color: white;
+    border: 1px solid #eeeeee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: 1s ease-out;
+  }
+
+  .circle-link:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  footer {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+  }
+
+  footer a {
+    display: flex;
+    align-items: center;
+  }
+
+  .github-star-badge {
+    color: #24292e;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    padding: 3px 10px;
+    border: 1px solid rgba(27,31,35,.2);
+    border-radius: 3px;
+    background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
+    margin-left: 4px;
+    font-weight: 600;
+  }
+
+  .github-star-badge:hover {
+    background-image: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%);
+    border-color: rgba(27,31,35,.35);
+    background-position: -.5em;
+  }
+
+  .github-star-badge .material-icons {
+    height: 16px;
+    width: 16px;
+    margin-right: 4px;
+  }
+
+  svg#clouds {
+    position: fixed;
+    bottom: -160px;
+    left: -230px;
+    z-index: -10;
+    width: 1920px;
+  }
+
+  /* Responsive Styles */
+  @media screen and (max-width: 767px) {
+    .card-container > *:not(.circle-link) ,
+    .terminal {
+      width: 100%;
+    }
+
+    .card:not(.highlight-card) {
+      height: 16px;
+      margin: 8px 0;
+    }
+
+    .card.highlight-card span {
+      margin-left: 72px;
+    }
+
+    svg#rocket-smoke {
+      right: 120px;
+      transform: rotate(-5deg);
+    }
+  }
+
+  @media screen and (max-width: 575px) {
+    svg#rocket-smoke {
+      display: none;
+      visibility: hidden;
+    }
+  }
+
+  /* ************************************** start ***************** */
+/* GOOGLE FONTS */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
+
+/* CSS RESET */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-family: "Montserrat", serif;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+button,
+.btn {
+  font-family: inherit;
+}
+
+/* CSS RESET ENDS */
+
+/* NAVIGATION BAR */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 20px;
+  padding: 0.75rem 5vw; 
+}
+
+nav span {
+  color: #151815;
+}
+
+nav p {
+  font-size: 25px;
+  font-weight: 600;
+  cursor: default;
+}
+
+nav li {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: #212529;
+  padding: 0 1rem;
+  transition: 0.1s ease-in-out;
+  font-size: 18px;
+}
+nav a:hover {
+  color: #5672f9;
+}
+
+nav .btn {
+  padding: 0.5rem 1rem;
+    margin: 10px 0px 10px 7.5rem;
+    border-radius: 5px;
+    /* font-weight: 600; */
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    font-size: 16px;
+}
+nav .btns {
+  padding: 0.5rem 1rem;
+    margin: 10px 0px 10px 0.5rem;
+    border-radius: 5px;
+    /* font-weight: 600; */
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    font-size: 16px;
+}
+.register {
+  background-color: #28a745;;
+  color: #5672f9;
+  border: 1px solid #4caf50;
+  border-radius: 5px;
+}
+ 
+.register:hover{
+  color: white;
+}
+ 
+.login {
+  background-color: white;
+  color: #212529;
+}
+
+ 
+
+/* NAVIGATION BAR ENDS */
+
+
+/* MEDIA QUERIES - RESPONSIVE LAYOUT */
+
+/* DESKTOP - LAPTOP - TABLET */
+@media screen and (min-width: 850px){
+  nav .small-screens {
+    display: none;
+  }
+}
+
+/* MOBILE */
+@media screen and (max-width: 850px){
+  nav{
+    padding: 1rem 5vw;
+  }
+  
+  nav .small-screens i{
+    font-size: 25px;
+    cursor: pointer;
+  }
+ 
+  nav .big-screens {
+    display: none;
+  }
+}
+.bg-1 {
+    background: url(https://georgebrata.ro/alege-un-website/032-classimax-master/images/home/hero.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;height: 530px;
+}
+.hero-area {
+    padding: 100px 0 0;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: -1;
+  opacity: 0;
+  transition: 1s all;
+}
+
+.navbar {
+  display: flex;
+  align-items: center; 
+  background-color: #fff; 
+  position: relative; 
+  background-color: #fff;
+}
+.navbar-logo {
+  color: #5672f9;;
+  text-decoration: none;
+  font-size: 25px;
+  padding: 0px 20px;
+}
+
+.navbar-links {
+  list-style-type: none;
+  display: flex;
+}
+.navbar-links li a {
+  display: block;
+  text-decoration: none;
+  color: #000;
+  padding: 20px 20px; 
+  transition: 0.4s all;
+  font-size: 18px;
+}
+
+.navbar-links li.navbar-dropdown {
+  position: relative;
+}
+
+.navbar-links li.navbar-dropdown:hover .dropdown {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.navbar-links li.navbar-dropdown .dropdown {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  padding: 20px 0;
+  top: 100%;
+  transform: translateY(50px);
+  left: 0;
+  width: 250px;
+  background-color: #fff;
+  box-shadow: 0px 10px 10px 3px rgba(0, 0, 0, 0.3);
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  z-index: 111;
+  transition: 0.4s all;
+}
+.navbar-links li.navbar-dropdown .dropdown a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: 400;
+}
+.navbar-dropdown .dropdown a:hover {
+  padding-left: 30px;
+}
+.navbar-links li a:hover {
+  color: #5672f9;;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 90vh;
+  /* background-color: #f00; */
+  background-image: url("http://lorempixel.com/1366/698/food/");
+  background-size: cover;
+}
+
+.header-inner {
+  text-align: center;
+  color: #5672f9;;
+  text-shadow: 0px 10px 10px rgba(0, 0, 0, .8);
+}
+
+.header-inner h1 {
+  font-family: "Great Vibes", cursive;
+  font-size: 130px;
+}
+
+.header-inner form input[type="search"] {
+  position: relative;
+  width: 500px;
+  border: none;
+  padding: 15px;
+  border-radius: 27px;
+  box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.3);
+  z-index: 11;
+}
+.header-inner form input[type="search"]:focus {
+  outline: none;
+}
+
+.header-inner form input[type="search"]:focus + div {
+  z-index: 1;
+  opacity: 1;
+}
+
+::placeholder {
+  color: #666;
+  font-weight: 400;
+}
+.fas{
+  margin-right: 12px
+}
+ 
+.faCartArrowDown{
+color: white;}
+.banner2{
+  color: #fff;
+    font-size: 60px;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    margin-bottom: 15px;
+    text-align: center;
+    padding: 0px 0px 0px 160px;
+    margin-top: 1px;
+}
+.banner1{
+  background: #09090a0d;
+}
+.bannercat{
+  display: flex;
+    color: #c1c1c1;
+    margin-left: 30%;
+    margin-top: 30px;
+}
+.fasbe{
+  margin-right: 5px;
+    margin-left: 5px;
+}
+.bannerIcons{
+  padding: 5px 8px 4px 10px;
+    border: 1px solid #f5deb373;
+    margin-right: 17px; 
+}
+.bannerp1{
+  color: white;
+    text-align: center;
+    font-size: 22px;margin-right:60px;margin-top: 45px;
+}
+.bannerpc{
+  color: white;
+    text-align: center;
+    font-size: 20px;margin-right:60px;margin-top: 30px;
+}
+.bannerforms{
+  margin-left: 14%;
+    margin-top: 40px;
+    padding: 0px 0px 50px 0px;
+    background: white;
+    display: flex;
+    width: 75%;
+}
+.bannerforms1{
+ 
+  width: 38%;
+
+    text-align: center;
+}
+
+.bannerforms2{
+
+  width: 38%;
+
+    text-align: center;
+}
+
+.bannerforms3{
+  width: 20%;
+    text-align: center;
+}
+
+.bannerforminput{
+  margin-top: 40px;
+    padding: 16px 20px 20px 0px;
+    width: 90%;
+    margin-left: 80px;
+    border: 1px solid #0000004a;
+    border-radius: 2px;
+    font-size: 15px;
+    padding-left: 15px;
+}
+.buttonSearch{
+  margin-top: 40px;
+    padding: 15px 0px 14px 0px;
+    width: 65%;
+    margin-left: 80px;
+    border: 1px solid #0000004a;
+    background: #5672f9;
+    color: #fff;
+    text-transform: capitalize;
+    font-size: 18px;
+    border-radius: 3px;cursor: pointer;
+}
+.buttonSearch:hover{
+  background: #082de1;
+}
+
+/* ********************************** section 3 ********************************* starts */
+
+.section31{
+  text-align: center;
+    margin-top: 50px;
+    font-size: 30px;
+}
+.section32{
+  text-align: center;
+    margin-top: 15px;
+}
+.section3divs{
+  display: flex;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 60px;
+    padding: 10px 0px 10px 0px;
+}
+.imgs{
+  width:100%;
+}
+.section33divs{
+  width: 30%;
+    background-color: white;
+ 
+    margin-left: 30px;
+
+}
+.section333p{
+  margin-top: 12px;
+    margin-bottom: 20px;
+    margin-left: 15px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.faCloud{
+  margin-left: 12px;color: #cdcdcd;
+}
+.faclods{
+  margin-left: 10px;
+}
+.faCalendars{
+  margin-left: 12px;
+}
+.faCalendar{
+  margin-left: 12px;color: #cdcdcd;
+}
+.scctions34p{
+  width: 75%;
+}
+.scctions34m{
+  margin-top: 12px;
+    margin-left: 12px;
+    line-height: 25px;
+}
+.section3star{
+  color: blue;
+    margin-left: 12px;    font-size: 15px;    margin-top: 12px;margin-bottom: 12px;
+}
+.faStar{
+  margin-left:3px;font-size: 15px;
+}
+.faStar1{
+  margin-left:3px;color: rgba(140, 135, 135, 0.389);    font-size: 15px;
+}
+.sectexts{
+  color: #2e2d2d80;
+}
+.sectextss{
+  color: #2e2d2d80;
+    text-align: center;font-size: 15px;
+}
+
+/* *********************************************************************************** section 3 ends */
+/* 88888888888888888888888888888888888    section ------ 4    888888888888888888888888888  */
+
+.section4{
+  background: white;
+    margin-top: 6%;
+}
+.section41{
+  text-align: center;
+    font-size: 30px;
+    font-weight: 100;
+    padding-top: 80px;
+    padding-bottom: 15px;
+}
+.section42m{
+  display: flex;
+    width: 85%;
+    margin-left: 8%;
+    margin-top: 30px;
+}
+.section42m2{
+  display: flex;
+    width: 85%;
+    margin-left: 8%;
+    margin-top: 30px;
+}
+.sec42b{
+  width: 30%;
+    box-shadow: 2px 2px 2px 2px #2e28284d;
+    margin-left: 30px;
+
+}
+.sec4es{
+  text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+
+}
+
+.sec4imgadj{
+  margin-left: 35%;
+    padding-top: 15px;
+}
+.sec43b{
+  margin-left: 12px;
+    padding: 11px;
+    border-bottom: 2px solid #00000026;
+    margin-right: 15px;color: #00000045;
+}
+.sec43bl{
+  margin-left: 12px;
+    padding: 11px; 
+    margin-right: 15px;color: #00000045;    margin-bottom: 12px;
+}
+.sec4noa{
+  color: #00000045 !important;
+    text-decoration: underline !important;    cursor: pointer;
+}
+.sec4no{
+  margin-left: 55%;
+    float: right;
+    font-size: 10px;
+    background: #F4F7F9;
+    border-radius: 10px;
+    padding: 3px 2px;
+    color: #84919B;
+}
+/* ((((((((((((((((((((((((((((((((((((((((((((((((((4444444444444444 ends)))))))))))))))))))))))))))))))))))))))))))))))))) */
+
+/* **************************************************************** footer starts */
+.section5{
+  margin-top: 70px;background: #232425;
+}
+.sec5{display: flex;
+   
+  display: flex;
+    width: 90%;
+    padding: 58px 0px 0px 0px;
+    margin-left: 100px;
+    padding-bottom: 70px;
+
+}
+.sec51{
+  width: 35%;
+}
+.sec51m{
+  width: 20%;
+}
+.sec51b{
+  width: 20%;
+}
+.text5112{
+  width: 78%;
+    line-height: 26px;
+    color: #c7c7c7;
+    margin-top: 37px;
+}
+.sec512222{
+  color: #fff;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+.sec51223{
+  display: block;
+    font-size: 14px;
+    color: #007bff;
+    line-height: 29px;
+
+}
+.sec51223:hover{ 
+    color: #797979;
+}
+.sipgs{
+color: #797979 !important;
+}
+.sipgs:hover{
+  color:  #007bff !important;
+}
+.sec52{
+  width: 45%;
+    padding: 30px 30px;
+    background: #46484A;
+    border-radius: 2px;
+    height: 110px;
+    display: flex;
+}
+.sec522{
+  width: 50px;
+}
+.sec52222{
+  margin-left: 5px;
+    color: #fff;
+    padding-top: 18px;
+}
+.sec6{ display: flex; 
+    background: #363839;
+}
+.sec61{ color: #c7c7c7;
+    margin-left: 7%;
+    padding-top: 25px;}
+.sec62{     display: flex;
+    color: #c7c7c7;
+    width: 60%;}
+.sec63{ }
+/* **************************************************************** footer ends */
+
+
+
+/* MEDIA QUERIES ENDS*/
+/* **************** ends ************* */
+</style>
+
+<!-- Toolbar -->
+<div  role="banner">
+  <nav class="navbar">
+    <img src="https://georgebrata.ro/alege-un-website/032-classimax-master/images/logo.png" alt="logo">
+    
+    <ul class="navbar-links">
+      <li class="navbar-dropdown">
+        <a href="#">Home</a> 
+      </li>
+      <li class="navbar-dropdown">
+        <a href="#">Dashboard</a>
+      </li>
+      <li class="navbar-dropdown">
+        <a href="#">Pages <fa-icon [icon]="faCartArrowDown" class="faCartArrowDowns"></fa-icon></a>
+        <div class="dropdown">
+          <a href="#">category</a>
+          <a href="#">Single Page</a>
+          <a href="#">Storage Single</a>
+          <a href="#">Dashboard</a>
+          <a href="#">User Profile</a>
+          <a href="#">Submit Coupon</a>
+          <a href="#">Blog</a>
+          <a href="#">Single Post</a>
+        </div>
+      </li>
+      <li class="navbar-dropdown">
+        <a href="#">Listing <fa-icon [icon]="faCartArrowDown" class="faCartArrowDowns"></fa-icon></a>
+         <div class="dropdown">
+          <a href="#">Action</a>
+          <a href="#">Another action </a>
+          <a href="#">Something else here</a> 
+        </div>
+      </li>
+      
+      <button class="btn login">Login</button>
+        <button class="btns register">  
+          <fa-icon [icon]="faPlus" class="fas"></fa-icon>
+          Add Listing</button>
+        
+
+    </ul>
+  </nav>
+</div>
+
+<!-- banner part -->
+<section class="bg-1 " role="banner">
+  <div class="banner1">
+    <div>
+
+      <h1 class="banner2" style="padding: 108px 0px 0px 0px;">  Buy &amp; Sell Near You  </h1>
+    </div>
+<p class="bannerp1">Join the millions who buy and sell from each other </p>
+
+<p class="bannerp1" style="margin-top: 10px;"> everyday in local communities around the world  </p>
+<h4 class="bannerpc">POPULAR CATEGORY </h4>
+<div class="bannercat">
+  <div class="bannerIcons"> <fa-icon [icon]="faHotel" class="fasbe"></fa-icon> Hotel</div>
+  <div class="bannerIcons"><fa-icon [icon]="faPersonBooth" class="fasbe"></fa-icon> Fitness</div>
+  <div class="bannerIcons">  <fa-icon [icon]="faCar" class="fasbe"></fa-icon> Cars</div>
+  <div class="bannerIcons"> <fa-icon [icon]="faUtensilSpoon" class="fasbe"></fa-icon> Restaurants</div>
+  <div class="bannerIcons"> <fa-icon [icon]="faMugHot" class="fasbe"></fa-icon> Cafe</div>
+  
+</div>
+<div class="bannerforms">
+  <div class="bannerforms1">
+    <input type="text" id="fname" class="bannerforminput" placeholder="Search for the store" name="fname">
+  </div>
+  <div class="bannerforms2">
+    <input type="text" id="fname" class="bannerforminput" placeholder="Search for the store"  name="fname">
+  </div>
+  <div class="bannerforms3">
+     <button class="buttonSearch">Search</button>
+  </div>
+</div>
+
+<section class="scection3">
+ 
+ <h1 class="section31">
+  Trending Ads
+</h1>
+<p class="section32">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas, magnam. </p>
+
+<div class="section3divs">
+<div class="section33divs">
+  <img src="https://georgebrata.ro/alege-un-website/032-classimax-master/images/products/products-1.jpg" class="imgs" alt="">
+ <div>
+  <p class="section333p">
+    11 inch Macbook Air
+  </p>
+ </div>
+ 
+ <div>
+  <div>
+    <fa-icon [icon]="faCloud" class="faCloud"></fa-icon> <span class="faclods sectexts">Electronics</span>
+    <fa-icon [icon]="faCalendar" class="faCalendar"></fa-icon> <span class="faCalendars sectexts">26th December</span> 
+  </div>
+  <div  class="scctions34m">
+    <p class="scctions34p sectexts">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, aliquam!
+    </p>
+  </div>
+  <div class="section3star">
+    <fa-icon [icon]="faStar" class="faStar"></fa-icon> 
+    <fa-icon [icon]="faStar" class="faStar"></fa-icon> 
+    <fa-icon [icon]="faStar" class="faStar"></fa-icon> 
+    <fa-icon [icon]="faStar" class="faStar"></fa-icon> 
+    <fa-icon [icon]="faStar" class="faStar1"></fa-icon> 
+  </div>
+</div>
+</div>
+<div class="section33divs">
+  <img src="https://georgebrata.ro/alege-un-website/032-classimax-master/images/products/products-2.jpg" class="imgs"  alt="">
+  <p class="section333p">Full Study Table Combo</p>
+  <div>
+    <div>
+      <fa-icon [icon]="faCloud" class="faCloud"></fa-icon> <span class="faclods sectexts">Furnitures</span>
+      <fa-icon [icon]="faCalendar" class="faCalendar"></fa-icon> <span class="faCalendars sectexts">26th December</span> 
+    </div>
+<div  class="scctions34m">
+  <p class="scctions34p sectexts">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, aliquam!
+  </p>
+</div>
+<div class="section3star">
+  <fa-icon [icon]="faStar" class="faStar"></fa-icon> 
+  <fa-icon [icon]="faStar" class="faStar"></fa-icon> 
+  <fa-icon [icon]="faStar" class="faStar"></fa-icon> 
+  <fa-icon [icon]="faStar" class="faStar"></fa-icon> 
+  <fa-icon [icon]="faStar" class="faStar1"></fa-icon> 
+</div>
+  </div>
+</div>
+<div class="section33divs">
+  <img src="https://georgebrata.ro/alege-un-website/032-classimax-master/images/products/products-3.jpg" class="imgs"  alt="">
+  <div  class="scctions34m">
+    <p class="section333p sectexts">
+      11 inch Macbook Air
+    </p>
+   </div>
+   
+   <div>
+    <div>
+      <fa-icon [icon]="faCloud" class="faCloud"></fa-icon>  <span class="faclods sectexts">Electronics</span>
+      <fa-icon [icon]="faCalendar" class="faCalendar"></fa-icon> <span class="faCalendars sectexts">26th December</span> 
+    </div>
+<div class="scctions34m">
+  <p class="scctions34p sectexts">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, aliquam!
+  </p>
+</div>
+<div class="section3star">
+  <fa-icon [icon]="faStar" class="faStar"></fa-icon> 
+  <fa-icon [icon]="faStar" class="faStar"></fa-icon> 
+  <fa-icon [icon]="faStar" class="faStar"></fa-icon> 
+  <fa-icon [icon]="faStar" class="faStar"></fa-icon> 
+  <fa-icon [icon]="faStar" class="faStar1"></fa-icon> 
+</div>
+   </div>
+</div>
+</div>
+
+ </section>
+
+  <div class="section4">
+  <div class="section411">
+
+    <h1 class="section41 "> All Categories  </h1>
+  </div>
+  <p  class="section42 sectextss">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, provident! </p>
+  <div class="section42m">
+    <div class="sec42b">
+      
+      <img src="assets/1.png" class="sec4imgadj" alt="Image 1">
+    <h4 class="sec4es">Electronics</h4>
+    <div class="sec43b"> <a  class='sec4noa' href="">Laptops</a> <span class='sec4no'> 93</span> </div>
+    <div class="sec43b"> <a  class='sec4noa' href="">Iphone</a> <span class='sec4no'> 233</span> </div>
+    <div class="sec43b"> <a  class='sec4noa' href="">Microsoft</a> <span class='sec4no'> 183</span> </div>
+    <div class="sec43bl"> <a  class='sec4noa' href="">Monitors</a> <span class='sec4no'> 343</span> </div>
+  </div>
+    <div class="sec42b">
+    
+       
+      <img src="assets/2.png" class="sec4imgadj" alt="Image 1">
+    <h4 class="sec4es">Restaurants</h4>
+    <div class="sec43b"> <a  class='sec4noa' href="">Cafe</a> <span class='sec4no'> 93</span> </div>
+    <div class="sec43b"> <a  class='sec4noa' href="">Fast food</a> <span class='sec4no'> 23</span> </div>
+    <div class="sec43b"> <a  class='sec4noa' href="">Hospitals</a> <span class='sec4no'> 83</span> </div>
+    <div class="sec43bl"> <a  class='sec4noa' href="">Parolurs</a> <span class='sec4no'> 33</span> </div>
+    </div>
+    <div class="sec42b"> 
+      <img src="assets/3.png" class="sec4imgadj" alt="Image 1">
+    <h4 class="sec4es">Real Estate</h4>
+    <div class="sec43b"> <a  class='sec4noa' href="">Farms</a> <span class='sec4no'> 93</span> </div>
+    <div class="sec43b"> <a  class='sec4noa' href="">Gym</a> <span class='sec4no'> 233</span> </div>
+    <div class="sec43b"> <a  class='sec4noa' href="">Microsoft</a> <span class='sec4no'> 183</span> </div>
+    <div class="sec43bl"> <a  class='sec4noa' href="">Monitors</a> <span class='sec4no'> 343</span> </div>
+    </div>
+    <div class="sec42b">
+      <img src="assets/4.png" class="sec4imgadj" alt="Image 1">
+    <h4 class="sec4es">Shoppings</h4>
+    <div class="sec43b"> <a  class='sec4noa' href="">Mens Wears</a> <span class='sec4no'> 53</span> </div>
+    <div class="sec43b"> <a  class='sec4noa' href="">Accessories</a> <span class='sec4no'> 212</span> </div>
+    <div class="sec43b"> <a  class='sec4noa' href="">Kids Wears</a> <span class='sec4no'> 133</span> </div>
+    <div class="sec43bl"> <a  class='sec4noa' href="">It & Software</a> <span class='sec4no'> 143</span> </div>
+    </div>
+  </div>
+  
+  <div class="section42m2">
+    <div class="sec42b">
+      
+      <img src="assets/5.png" class="sec4imgadj" alt="Image 1">
+    <h4 class="sec4es">Jobs</h4>
+    <div class="sec43b"> <a  class='sec4noa' href="">It Jobs</a> <span class='sec4no'> 93</span> </div>
+    <div class="sec43b"> <a  class='sec4noa' href="">Cleaning & Washing</a> <span class='sec4no'> 233</span> </div>
+    <div class="sec43b"> <a  class='sec4noa' href="">Management</a> <span class='sec4no'> 183</span> </div>
+    <div class="sec43bl"> <a  class='sec4noa' href="">Voluntary Works</a> <span class='sec4no'> 343</span> </div>
+  </div>
+    <div class="sec42b">
+    
+       
+      <img src="assets/6.png" class="sec4imgadj" alt="Image 1">
+    <h4 class="sec4es">Vehicles</h4>
+    <div class="sec43b"> <a  class='sec4noa' href="">Bus</a> <span class='sec4no'> 193</span> </div>
+    <div class="sec43b"> <a  class='sec4noa' href="">Cars</a> <span class='sec4no'> 23</span> </div>
+    <div class="sec43b"> <a  class='sec4noa' href="">Motobike</a> <span class='sec4no'> 33</span> </div>
+    <div class="sec43bl"> <a  class='sec4noa' href="">Rent a car</a> <span class='sec4no'> 73</span> </div>
+    </div>
+    <div class="sec42b"> 
+      <img src="assets/7.png" class="sec4imgadj" alt="Image 1">
+    <h4 class="sec4es">Pets</h4>
+    <div class="sec43b"> <a  class='sec4noa' href="">Cats</a> <span class='sec4no'> 63</span> </div>
+    <div class="sec43b"> <a  class='sec4noa' href="">Dogs</a> <span class='sec4no'> 23</span> </div>
+    <div class="sec43b"> <a  class='sec4noa' href="">Birds</a> <span class='sec4no'> 113</span> </div>
+    <div class="sec43bl"> <a  class='sec4noa' href="">Others</a> <span class='sec4no'> 43</span> </div>
+    </div>
+    <div class="sec42b">
+      <img src="assets/8.png" class="sec4imgadj" alt="Image 1">
+    <h4 class="sec4es">Services</h4>
+    <div class="sec43b"> <a  class='sec4noa' href="">Cleaning</a> <span class='sec4no'> 93</span> </div>
+    <div class="sec43b"> <a  class='sec4noa' href="">Car Washing</a> <span class='sec4no'> 233</span> </div>
+    <div class="sec43b"> <a  class='sec4noa' href="">Clothing</a> <span class='sec4no'> 183</span> </div>
+    <div class="sec43bl"> <a  class='sec4noa' href="">Business</a> <span class='sec4no'> 343</span> </div>
+    </div>
+  </div>
+ 
+  </div>
+  </div>
+  <section class="section5">
+<div class="sec5">
+  <div class="sec51">
+    <div class="sec511"><img src="https://georgebrata.ro/alege-un-website/032-classimax-master/images/logo-footer.png" alt=""></div>
+  <div class="sec5112">
+    <p class="text5112">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </p>
+  </div>
+  </div>
+  <div class="sec51m">
+    <h3 class="sec512222"> Site Pages </h3>
+    <ul>
+      <li class="sec51223">  <a href="" class="sipgs"> Boston </a>   </li>
+      <li  class="sec51223"> <a href="" class="sipgs"> How It works</a>   </li>
+      <li  class="sec51223"> <a href="" class="sipgs"> Deals & Coupons</a>   </li>
+      <li  class="sec51223"> <a href="" class="sipgs"> Articls & Tips</a>   </li>
+      <li  class="sec51223"> <a href="" class="sipgs"> Terms of Services</a>   </li>
+    </ul>
+  </div>
+  <div class="sec51b">
+
+    <h3 class="sec512222"> Admin Pages </h3>
+    <ul>
+      <li class="sec51223"> <a href="" class="sipgs">Boston</a>   </li>
+      <li class="sec51223"> <a href="" class="sipgs">How It works </a> </li>
+      <li class="sec51223"> <a href="" class="sipgs">Deals & Coupons</a>  </li>
+      <li class="sec51223"> <a href="" class="sipgs">Articls & Tips </a> </li>
+      <li class="sec51223"> <a href="" class="sipgs">Terms of Services </a> </li>
+
+    </ul>
+
+  </div>
+  <div class="sec52">
+    <div class="sec522">
+      <img src="	https://georgebrata.ro/alege-un-website/032-classimax-master/images/footer/phone-icon.png" alt="">
+    </div>
+    <div class="sec52222">
+      <p class="sec5223">Get the Dealsy Mobile App and Save more</p>
+    </div>
+  </div>
+</div>
+  </section>
+ <section class="">
+  <div class="sec6">
+
+    <div class="sec61"> <p class="sec611">Copyright © 2016. All Rights Reserved</p> </div>
+    <div class="sec62">
+      <div class="sec63"> fb</div>
+      <div class="sec63"> twitter</div>
+      <div class="sec63"> p</div>
+      <div class="sec633"> v</div>
+    </div>
+  </div>
+ </section>
+ </section>
+
+
+ 
+ 
+
+<router-outlet></router-outlet>
+
+
+<!-- git remote add origin https://github.com/sukumar-p/angularLatest.git -->
