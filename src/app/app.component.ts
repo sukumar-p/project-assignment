@@ -1,21 +1,10 @@
-import { Component } from '@angular/core';
-import {
-  faPlusCircle,
-  faCaretDown,
-  faHotel,faCar,faUtensilSpoon,faMugHot,faPersonBooth,faCloud,faCalendar,faStar
-
-} from "@fortawesome/free-solid-svg-icons";
+import { Component, ViewEncapsulation } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-  title = 'classimax';
-  faPlus=faPlusCircle;
-  faCartArrowDown=faCaretDown;
-  faHotel= faHotel;
-  faCar =  faCar;
-  faUtensilSpoon=faUtensilSpoon;faMugHot=faMugHot;faPersonBooth=faPersonBooth;faCloud=faCloud;faCalendar=faCalendar;faStar=faStar
-
+  
 }

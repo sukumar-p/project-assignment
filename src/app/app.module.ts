@@ -4,10 +4,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HeaderComponent } from './header/header.component';
+import { BannerComponent } from './banner/banner.component';
+import { TrendingAdsComponent } from './trending-ads/trending-ads.component';
+import { CategoriesComponent } from './categories/categories.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    BannerComponent,
+    TrendingAdsComponent,
+    CategoriesComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
